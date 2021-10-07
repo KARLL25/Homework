@@ -1,4 +1,4 @@
-ZN = int(input())
+N = int(input())
 for x in range (1, N + 1):
     
     tmp = 0
