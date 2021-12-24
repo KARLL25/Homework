@@ -5,7 +5,7 @@ def Calc(a,b,c):
         b = str(b)
         c = float(c)
     except ValueError:
-        print('Введено не число')
+        print('Либо ввели не число, либо пустое значение')
     else: 
         if b=='+':
             result=a+c
@@ -29,7 +29,7 @@ def Calc(a,b,c):
         else:
             print("Неизвестный оператор")
 while True:
-    a = int(input('Введите число '))
+    a = input('Введите число ')
     b = input('Введите функцию ')
-    c = int(input('Снова число '))
+    c = input('Снова число ')
     print(Calc(a,b,c))
