@@ -29,5 +29,7 @@ def Calc(a,b,c):
         else:
             print("Неизвестный оператор")
 while True:
-    a,b,c=input("Введите число_функцию_снова число").split()
+    a = int(input('Введите число '))
+    b = input('Введите функцию ')
+    c = int(input('Снова число '))
     print(Calc(a,b,c))
