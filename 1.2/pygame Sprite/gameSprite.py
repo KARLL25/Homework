@@ -1,5 +1,6 @@
 import pygame
 import random
+from tkinter import *
 
 from pygame.locals import(
     K_UP,
@@ -11,8 +12,11 @@ from pygame.locals import(
     QUIT,
     RLEACCEL
     )
+
+
 SCREEN_WIDTH=800
 SCREEN_HEIGHT=800
+
 
 PlayerSprite=pygame.sprite,Sprite()
 enemySprite=pygame.sprite.Sprite()
@@ -71,6 +75,7 @@ def enemyUpdate():
 pygame.init()
 screen=pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 
+
 playerInit()
 enemyInit()
 clock=pygame.time.Clock()
@@ -89,6 +94,23 @@ while running:
     if pygame.sprite.collide_rect(playerSprite, enemySprite):
         playerInit()
         enemyInit()
+        
+        try:
+            import Tkinter as tk
+        except:
+            import tkinter as tk
+
+        root = tk.Tk()
+        root.geometry("200x200")
+
+        button = tk.Button(text = "Начать заново", command = root.destroy)
+        button.pack()
+        root.geometry('200x200-805-505')
+        root.mainloop()
+        
+        window = tk.Tk()
+        window.mainloop()
+        
     #screen.fill()
     screen.blit(background_image,(0,0))
 
