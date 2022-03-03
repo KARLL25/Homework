@@ -96,6 +96,6 @@ while running:
     screen.blit(enemySprite.image, enemySprite.rect)
 
     pygame.display.flip()
-    clock.tick(30)
+    clock.tick(60)
 
 pygame.quit()
