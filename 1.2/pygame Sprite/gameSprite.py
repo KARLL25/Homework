@@ -17,6 +17,7 @@ SCREEN_HEIGHT=800
 PlayerSprite=pygame.sprite,Sprite()
 enemySprite=pygame.sprite.Sprite()
 enemySpeed=5
+background_image=pygame.image.load("nebo.jpg")
 
 def playerInit():
     global playerSprite
@@ -88,7 +89,8 @@ while running:
     if pygame.sprite.collide_rect(playerSprite, enemySprite):
         playerInit()
         enemyInit()
-    screen.fill.image.load("nebo.jpg").convert()
+    #screen.fill()
+    screen.blit(background_image,(0,0))
 
     screen.blit(playerSprite.image, playerSprite.rect)
     screen.blit(enemySprite.image, enemySprite.rect)
