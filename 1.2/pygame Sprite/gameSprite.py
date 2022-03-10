@@ -1,6 +1,6 @@
 import pygame
 import random
-from tkinter import *
+
 from pygame.locals import (
     K_UP,
     K_DOWN,
@@ -17,7 +17,7 @@ SCREEN_HEIGHT = 800
 
 playerSprite = pygame.sprite.Sprite()
 enemySprite = pygame.sprite.Sprite()
-enemySpeed = 5
+enemySpeed = 0
 bg = pygame.image.load("nebo.jpg")
 
 
@@ -108,20 +108,22 @@ while running:
         except:
             import tkinter as tk
 
+
+
         root = tk.Tk()
         root.geometry("200x200")
+        root.title("PyGame")
+        root.resizable(width=0 , height=0)
 
 
-        button = tk.Button(text="Попробовать снова", command=root.destroy)
-        button.pack()
+        button = tk.Button(text="Попробовать снова", command=root.destroy, padx="15", pady="6")
+        button.place(x=40,y=70,width=120,height=50)
+
         root.geometry('200x200-805-505')
         root.mainloop()
 
-        window = tk.Tk()
-        window.title("PyGame Sprite")
 
-        root.geometry("200x200")
-        window.mainloop()
+
     screen.fill((0, 0, 0))
     screen.blit(bg, (0, 0))
 
