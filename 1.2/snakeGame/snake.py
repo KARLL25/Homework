@@ -1,116 +1,64 @@
-import math
-import random
 import pygame
-import tkinter as tk
-from tkinter import messagebox
+from random import randrange
 
-class cube:
-    rows = 20
-    w = 500
-    def __init__(self, start, dirnx=1,dirny=0, color=(255, 0, 0)):
-        self.pos = start
-        self.dirnx = 1
-        self.dirny = 0
-        self.color = color
+RES= 800
+SIZE= 50
 
-    def move(self, dirnx, dirny):
-        self.dirnx = dirnx
-        self.dirny = dirny
-        self.pos = (self.pos[0] + self.dirnx,self.pos[1] + self.dirny)
+x,y= randrange(0, RES, SIZE), randrange(0, RES, SIZE)
+apple= randrange(0, RES, SIZE),randrange(0, RES, SIZE)
+dirs={'W':True,'S':True,'A':True,'D':True,}
+length= 1
+snake= [(x,y)]
+dx,dy= 0,0
+fps=8
 
-    def draw(self, surface, eyes=False):
-        dis = self.w // self.rows
-        i = self.pos[0]
-        j = self.pos[1]
+pygame.init()
+sc= pygame.display.set_mode([RES,RES])
+clock=pygame.time.Clock()
 
-    pygame.draw.rect(surface, self.color, (i * dis + 1, j * dis + 1, dis - 2, dis - 2))
-    if eyes:
-        centre = dis // 2
-        radius = 3
-        circleMiddle = (i * dis + centre - radius, j * dis + 8)
-        circleMiddle2 = (i * dis + dis - radius * 2, j * dis + 8)
-        pygame.draw.circle(surface, (0, 0, 0),
-                       circleMiddle, radius)
-        pygame.draw.circle(surface, (0, 0, 0),
-                       circleMiddle2, radius)
+while True:
+    sc.fill(pygame.Color('black'))
 
-    class snake:
-        body = []
-        turns = {}
+    #цвет змейки и яблок
+    [(pygame.draw.rect(sc, pygame.Color('green'),(i, j, SIZE, SIZE))) for i,j in snake]
+    pygame.draw.rect(sc, pygame.Color('red'),(*apple, SIZE, SIZE))
 
-    def __init__(self, color, pos):
-        self.color = color
-        self.head = cube(pos)
-        self.body.append(self.head)
-        self.dirnx = 0
-        self.dirny = 1
+    #Передвижение змейки
+    x+=dx*SIZE
+    y+=dy*SIZE
+    snake.append((x,y))
+    snake= snake[-length:]
+    
+    #Поедание яблок
+    if snake[-1] == apple:
+        apple= randrange(0, RES, SIZE),randrange(0, RES, SIZE)
+        length+=1
+        
+    #Игра окончена
+    if x<0 or x >RES-SIZE or y<0 or y>RES-SIZE:
+        break
+    if len(snake) != len(set(snake)):
+        break
+        
+    pygame.display.flip()
+    clock.tick(fps)
 
-    def move(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
 
-            keys = pygame.key.get_pressed()
-            for key in keys:
-                if keys[pygame.K_LEFT]:
-                    self.dirnx = -1
-                    self.dirny = 0
-                    self.turns[self.head.pos[:]]=[self.dirnx, self.dirny]
-                elif keys[pygame.K_RIGHT]:
-                    self.dirnx = 1
-                    self.dirny = 0
-                    self.turns[self.head.pos[:]] = [self.dirnx, self.dirny]
-                elif keys[pygame.K_UP]:
-                    self.dirnx = 0
-                    self.dirny = -1
-                    self.turns[self.head.pos[:]] = [self.dirnx, self.dirny]
-                elif keys[pygame.K_DOWN]:
-                    self.dirnx = 0
-                    self.dirny = 1
-                    self.turns[self.head.pos[:]] = [self.dirnx, self.dirny]
-
-        for i, c in enumerate(self.body):
-            p = c.pos[:]
-            if p in self.turns:
-                turn = self.turns[p]
-                c.move(turn[0], turn[1])
-                if i == len(self.body) - 1:
-                    self.turns.pop(p)
-        else:
-            if c.dirnx == -1 and c.pos[0] = c.rows - 1:
-                c.pos = (0, c.pos[1])
-            elif c.dirny == 1 and c.pos[1] >= c.rows - 1:
-                c.pos = (c.pos[0], 0)
-            elif c.dirny == -1 and c.pos[1] 0:
-                continue
-            else:
-                break
-        return (x, y)
-
-    def main():
-        global width, rows, s, snack
-        width = 500
-        rows = 20
-        win = pygame.display.set_mode((width, width))
-        s = snake((255, 0, 0), (10, 10))
-        snack = cube(randomSnack(rows, s), color=(0, 255,0))
-
-        flag = True
-
-        clock = pygame.time.Clock()
-
-        while flag:
-            pygame.time.delay(50)
-            clock.tick(10)
-            s.move()
-            if s.body[0].pos == snack.pos:
-                s.addCube()
-                snack = cube(randomSnack(rows, s),
-                     color=(0, 255, 0))
-        for x in range(len(s.body)):
-            if s.body[x].pos in list(map(lambda z: z.pos, s.body[x + 1:])):
-                print('Score: \n', len(s.body))
-                message_box('You Lost!\n', 'Play again...\n’)
-                s.reset((10, 10))
-                break
-            redrawWindow(win)
+    # Управление
+    key=pygame.key.get_pressed()
+    if key[pygame.K_w] and dirs['W']:
+        dx,dy= 0,-1
+        dirs={'W':True,'S':False,'A':True,'D':True,}
+    if key[pygame.K_s] and dirs['S']:
+        dx,dy= 0,1
+        dirs={'W':False,'S':True,'A':True,'D':True,}
+    if key[pygame.K_a] and dirs['A']:
+        dx,dy= -1,0
+        dirs={'W':True,'S':True,'A':True,'D':False,}
+    if key[pygame.K_d] and dirs['D']:
+        dx,dy= 1,0
+        dirs={'W':True,'S':True,'A':False,'D':True,}
+    
