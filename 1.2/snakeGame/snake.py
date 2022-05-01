@@ -19,6 +19,9 @@ sc= pygame.display.set_mode([RES,RES])
 clock=pygame.time.Clock()
 font_score= pygame.font.SysFont('Arial', 26, bold=True)
 font_end= pygame.font.SysFont('Arial', 26, bold=True)
+pygame.mixer.music.load("fon.mp3")
+pygame.mixer.music.play(loops=0, start=0.0, fade_ms=0)
+
 
 while True:
     sc.fill(pygame.Color('black'))
@@ -43,6 +46,7 @@ while True:
         length+=1
         score+=1
         
+        
     #Игра окончена
     if x < 0 or x > RES - SIZE or y<0 or y>RES - SIZE or len(snake) != len(set(snake)):
         while True:
@@ -51,11 +55,15 @@ while True:
             pygame.display.flip()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    pygame.mixer.music.stop()
                     exit()
+    
+
         
     pygame.display.flip()
     clock.tick(fps)
-
+    
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             exit()
