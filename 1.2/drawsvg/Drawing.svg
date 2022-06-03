@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="900" height="800" viewBox="-450.0 -400.0 900 800">
+<defs>
+<path d="M90,0 A90,30,360,1,1,90,0 A90,40,360,1,1,-90,0 Z" id="d0" />
+</defs>
+<circle cx="-11" cy="-1" r="900" fill="#00008B" />
+<rect x="170" y="20" width="35" height="230" fill="#8B4513" />
+<circle cx="185" cy="-70" r="105" fill="red" />
+<circle cx="240" cy="-40" r="90" fill="#8B0000" />
+<circle cx="135" cy="-40" r="90" fill="#FF4500" />
+<rect x="-245" y="20" width="35" height="230" fill="#8B4513" />
+<circle cx="-225" cy="-70" r="115" fill="red" />
+<circle cx="-175" cy="-30" r="105" fill="#8B0000" />
+<circle cx="-265" cy="-30" r="105" fill="#FF4500" />
+<rect x="-500" y="215" width="1000" height="185" fill="#008000" />
+<circle cx="-250" cy="-200" r="4" fill="yellow">
+<animateMotion repeatCount="indefinite" dur="16s">
+<mpath xlink:href="#d0" />
+</animateMotion>
+</circle>
+<circle cx="170" cy="-200" r="3" fill="yellow">
+<animateMotion repeatCount="indefinite" dur="7s">
+<mpath xlink:href="#d0" />
+</animateMotion>
+</circle>
+<circle cx="120" cy="0" r="3" fill="yellow">
+<animateMotion repeatCount="indefinite" dur="5s">
+<mpath xlink:href="#d0" />
+</animateMotion>
+</circle>
+<circle cx="190" cy="100" r="3" fill="yellow">
+<animateMotion repeatCount="indefinite" dur="10s">
+<mpath xlink:href="#d0" />
+</animateMotion>
+</circle>
+<circle cx="-250" cy="100" r="3" fill="yellow">
+<animateMotion repeatCount="indefinite" dur="6s">
+<mpath xlink:href="#d0" />
+</animateMotion>
+</circle>
+</svg>
