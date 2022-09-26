@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="900" height="800" viewBox="-450.0 -400.0 900 800" fill="red">
+<defs>
+<path d="M-60,0 A50,50,150,1,1,60,0 A50,50,150,1,1,-60,0 Z" id="d0" />
+<path d="M-90,0 A70,70,190,1,1,90,0 A70,70,190,1,1,-90,0 Z" id="d1" />
+<path d="M-130,0 A110,110,190,1,1,130,0 A110,110,190,1,1,-130,0 Z" id="d2" />
+<path d="M-160,0 A150,150,210,1,1,160,0 A150,150,210,1,1,-160,0 Z" id="d3" />
+<path d="M-195,0 A170,170,230,1,1,195,0 A170,170,230,1,1,-195,0 Z" id="d4" />
+<path d="M-240,0 A190,190,250,1,1,240,0 A190,190,250,1,1,-240,0 Z" id="d5" />
+<path d="M-270,0 A210,210,270,1,1,270,0 A210,210,270,1,1,-270,0 Z" id="d6" />
+<path d="M-300,0 A230,230,290,1,1,300,0 A230,230,290,1,1,-300,0 Z" id="d7" />
+</defs>
+<circle cx="-11" cy="-1" r="900" fill="#000000" />
+<circle cx="0" cy="0" r="20" fill="yellow" />
+<circle cx="0" cy="0" r="4" fill="#2F4F4F">
+<animateMotion repeatCount="indefinite" dur="9s">
+<mpath xlink:href="#d0" />
+</animateMotion>
+</circle>
+<circle cx="0" cy="0" r="6" fill="#DAA520">
+<animateMotion repeatCount="indefinite" dur="13s">
+<mpath xlink:href="#d1" />
+</animateMotion>
+</circle>
+<circle cx="0" cy="0" r="7" fill="#00BFFF">
+<animateMotion repeatCount="indefinite" dur="15s">
+<mpath xlink:href="#d2" />
+</animateMotion>
+</circle>
+<circle cx="0" cy="0" r="6" fill="#FF4500">
+<animateMotion repeatCount="indefinite" dur="16s">
+<mpath xlink:href="#d3" />
+</animateMotion>
+</circle>
+<circle cx="0" cy="0" r="15" fill="#F4A460">
+<animateMotion repeatCount="indefinite" dur="19s">
+<mpath xlink:href="#d4" />
+</animateMotion>
+</circle>
+<circle cx="0" cy="0" r="13" fill="#FF4500">
+<animateMotion repeatCount="indefinite" dur="20s">
+<mpath xlink:href="#d5" />
+</animateMotion>
+</circle>
+<circle cx="0" cy="0" r="11" fill="#87CEEB">
+<animateMotion repeatCount="indefinite" dur="23s">
+<mpath xlink:href="#d6" />
+</animateMotion>
+</circle>
+<circle cx="0" cy="0" r="9" fill="#A0522D">
+<animateMotion repeatCount="indefinite" dur="26s">
+<mpath xlink:href="#d7" />
+</animateMotion>
+</circle>
+</svg>
