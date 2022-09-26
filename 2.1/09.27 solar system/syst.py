@@ -9,7 +9,6 @@ d.append(bg)
 
 s = draw.Circle(0, 0, 20, fill='yellow')
 
-
 d.append(s) # Вывод Солнца 0
 
 
