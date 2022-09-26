@@ -131,4 +131,4 @@ n.appendAnim(draw.AnimateMotion(ellipse, '26s',
 
 d.append(n) # Вывод Нептун на орбиту (8 планета)
 
-d.saveSvg('animated.svg') 
+d.saveSvg('sys.svg') 
