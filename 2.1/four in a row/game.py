@@ -30,25 +30,25 @@ def print_board(board):
 	print(np.flip(board, 0))
 
 def winning_move(board, piece):
-	# Check horizontal locations for win
+	# проверка по горизонтали
 	for c in range(COLUMN_COUNT-3):
 		for r in range(ROW_COUNT):
 			if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3] == piece:
 				return True
 
-	# Check vertical locations for win
+	# проверка по вертикали
 	for c in range(COLUMN_COUNT):
 		for r in range(ROW_COUNT-3):
 			if board[r][c] == piece and board[r+1][c] == piece and board[r+2][c] == piece and board[r+3][c] == piece:
 				return True
 
-	# Check positively sloped diaganols
+	# проверка "положительной" диагонали
 	for c in range(COLUMN_COUNT-3):
 		for r in range(ROW_COUNT-3):
 			if board[r][c] == piece and board[r+1][c+1] == piece and board[r+2][c+2] == piece and board[r+3][c+3] == piece:
 				return True
 
-	# Check negatively sloped diaganols
+	# проверка "отрицательной" диагонали
 	for c in range(COLUMN_COUNT-3):
 		for r in range(3, ROW_COUNT):
 			if board[r][c] == piece and board[r-1][c+1] == piece and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
@@ -108,8 +108,8 @@ while not game_over:
 
 		if event.type == pygame.MOUSEBUTTONDOWN:
 			pygame.draw.rect(screen, BLACK, (0,0, width, SQUARESIZE))
-			#print(event.pos)
-			# Ask for Player 1 Input
+			
+			# ввод первым игроком
 			if turn == 0:
 				posx = event.pos[0]
 				col = int(math.floor(posx/SQUARESIZE))
@@ -124,7 +124,7 @@ while not game_over:
 						game_over = True
 
 
-			# # Ask for Player 2 Input
+			# ввод вторым игроком
 			else:				
 				posx = event.pos[0]
 				col = int(math.floor(posx/SQUARESIZE))
