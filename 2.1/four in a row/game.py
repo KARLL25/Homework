@@ -9,7 +9,7 @@ RED = (255,0,0)
 YELLOW = (255,255,0)
 
 ROW_COUNT = 6
-COLUMN_COUNT = 7
+COLUMN_COUNT = 6
 
 def create_board():
 	board = np.zeros((ROW_COUNT,COLUMN_COUNT))
