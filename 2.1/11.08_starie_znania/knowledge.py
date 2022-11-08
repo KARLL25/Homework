@@ -28,12 +28,8 @@ vvod()
 
 def diapazon():
     x=int(input('Введите любое число от 0 до 100:'))
-    try:
-        if x < 100 and x > 0:
-            print(x*5)
-    except IndexError:
-        print('Вы ввели число не из диапазона')
-    else:
+    if (x>0) and (x<100):
         print(x*5)
+    else:
+        print('Вы ввели число не из диапазона')
 diapazon()
-
