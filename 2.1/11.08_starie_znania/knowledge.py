@@ -34,7 +34,7 @@ def diapazon(): #zadanie 3.1
         print('Вы ввели число не из диапазона')
 diapazon()
 
-def fibanacchi():
+def fibanacchi(): #zadanie 4
     x1, x2 = 1, 1
     print ('Введите число в пределах от 0 до 250: ')
     n = int ( input() )
