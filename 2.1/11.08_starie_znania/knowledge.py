@@ -33,3 +33,21 @@ def diapazon(): #zadanie 3.1
     else:
         print('Вы ввели число не из диапазона')
 diapazon()
+
+def fibanacchi():
+    x1, x2 = 1, 1
+    print ('Введите число в пределах от 0 до 250: ')
+    n = int ( input() )
+    while 999 < n or n < 1:
+        print('Неверное число')
+        print ('Введите число в пределах от 0 до 250: ')
+        n = int( input())
+    while x2 < n:
+      F = x1 + x2
+      x1=x2
+      x2=F
+    res = ''
+    if n != x2:
+        res = 'не '
+    print ( 'Число', n, res, 'является числом Фибоначи')
+fibanacchi()
