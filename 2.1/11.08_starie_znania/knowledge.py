@@ -26,7 +26,7 @@ def vvod(): #zadanie 2.2
     print(a)
 vvod()
 
-def diapazon():
+def diapazon(): #zadanie 3.1
     x=int(input('Введите любое число от 0 до 100'))
     try:
         if x in range(101):
