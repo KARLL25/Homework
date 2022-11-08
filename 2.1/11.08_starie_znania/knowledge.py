@@ -26,15 +26,14 @@ def vvod(): #zadanie 2.2
     print(a)
 vvod()
 
-def diapazon(): #zadanie 3.1
-    x=int(input('Введите любое число от 0 до 100'))
+def diapazon():
+    x=int(input('Введите любое число от 0 до 100:'))
     try:
-        if x in range(101):
+        if x < 100 and x > 0:
             print(x*5)
     except IndexError:
-        print('Вы выбрали число не из диапазона от 0 до 100')
+        print('Вы ввели число не из диапазона')
     else:
         print(x*5)
 diapazon()
-
 
