@@ -1,4 +1,4 @@
-import pygame, sys, pygame_menu 1
+import pygame, sys, pygame_menu 
 from tkinter import *
 from tkinter import messagebox
  
